@@ -1,0 +1,15 @@
+DB_HOST=mariadb
+DB_USER=abc
+DB_PASSWORD=<db_password>
+DB_NAME=inz
+
+CLERK_SECRET_KEY=<clerk_secret_key>
+
+SMTP_SERVER=<smtp.example.com>
+SMTP_PORT=587
+SMTP_LOGIN=<your_smtp_login>
+SMTP_PASSWORD=<your_smtp_password>
+
+MODEL_URL_CHRONOS=http://chronos-api:8000
+MODEL_URL_MORAI=http://morai-api:8000
+MODEL_URL_TIMESFM=http://timesfm-api:8000

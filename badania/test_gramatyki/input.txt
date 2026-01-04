@@ -1,0 +1,5 @@
+x=0;
+data=[1,2];
+for price in data {
+    x = price * x;
+}

@@ -1,0 +1,150 @@
+########################################
+# Python / General
+########################################
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compiled / extension modules
+*.so
+*.pyd
+*.dll
+*.dylib
+
+# Distributions / packaging
+.Python
+build/
+dist/
+wheelhouse/
+eggs/
+*.egg
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.manifest
+*.spec
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+.tox/
+.nox/
+
+# Environment / secrets (adjust if you want to commit any of these)
+.env
+.env.*
+*.env
+*.secret
+secrets*/
+
+# Logs & runtime
+*.log
+*.pid
+*.pid.lock
+*.coverage
+coverage.xml
+htmlcov/
+.coverage.*
+
+# Testing / caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.hypothesis/
+.pyre/
+.pytype/
+
+# Type checker / static analysis
+.dmypy.json
+dmypy.json
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Editors / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+# OS / misc
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Coverage & profiling
+profiler.stats
+*.prof
+*.lprof
+*.pstats
+
+# Build docs
+docs/_build/
+site/
+
+# Wheels / archives
+*.whl
+*.tar.gz
+*.zip
+
+# Temporary files
+tmp*/
+temp*/
+*.tmp
+*.bak
+*.old
+
+# CSV / data outputs (keep specific data files by whitelisting below)
+*.csv
+!f.csv  # keep this specific file if needed
+
+# Generated reports / artifacts
+reports/
+artifacts/
+
+########################################
+# ANTLR (adjust depending on what you want tracked)
+########################################
+# The grammar source should usually be committed (e.g. EconLang.g4)
+# Generated parser/lexer artifacts can be ignored IF you regenerate them in build steps.
+# Uncomment the lines below to ignore generated ANTLR Python files:
+# EconLangLexer.py
+# EconLangParser.py
+# EconLangListener.py
+# EconLangVisitor.py
+# *.interp
+# *.tokens
+
+########################################
+# Local scripts / scratch files (optional)
+########################################
+# Add any ad‑hoc scratch or experimental scripts you don't want committed.
+# scratch*/
+# sandbox*/
+
+########################################
+# SMTP / credentials safety (adjust as needed)
+########################################
+# smtp_credentials.json
+
+########################################
+# Overrides / Exceptions
+########################################
+# If you need to force include something otherwise ignored, use negate pattern, e.g.:
+# !important_script.py
+
+# Keep the example eco file
+!example.eco
+
+# End of file
+*.jar
+*.interp
+*.tokens
+EconLangParser.py
+EconLangLexer.py
+EconLangListener.py
+EconLangVisitor.py
+!.env.pst

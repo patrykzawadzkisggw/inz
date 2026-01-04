@@ -1,0 +1,4 @@
+[run]
+omit =
+    custom_lib.py
+    tests/*

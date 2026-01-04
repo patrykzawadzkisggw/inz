@@ -1,0 +1,8 @@
+[run]
+omit =
+    *EconLangLexer.py
+    *EconLangListener.py
+    *EconLangParser.py
+    *EconLangVisitor.py
+    tests/*
+    users/*

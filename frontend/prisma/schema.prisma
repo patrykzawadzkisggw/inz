@@ -1,0 +1,182 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+enum ModelType {
+  chronos
+  morai
+  timesfm
+}
+
+enum ModelMode {
+  pretrained
+}
+
+
+enum DataSourceKind {
+  API
+  FILE
+}
+
+enum ImportPhase {
+  INITIAL
+  UPDATE
+}
+
+enum FrequencyUnit {
+  m
+  h
+  d
+}
+
+
+enum WidgetType {
+  TEXT
+  CHART
+  TABLE
+}
+
+model User {
+  id        String          @id @default(cuid())
+  email     String          @unique
+  models    Model[]
+  reports   Report[]
+  functions CustomFunction[]
+  widgets   Widget[]
+  isAccountPrivate Boolean     @default(true)
+}
+
+model Model {
+  id             String         @id @default(cuid())
+  name           String
+  description    String?  @db.Text
+  type           ModelType
+  mode           ModelMode @default(pretrained)
+  enableUpdates  Boolean         @default(true)
+  configJson     Json
+  ownerId        String
+  owner          User?           @relation(fields: [ownerId], references: [id])
+  dataFeeds      DataFeed[]
+  imports        DataImport[]
+  predictions    Prediction[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @default(now()) @updatedAt
+  @@unique([ownerId, name])
+  @@index([type, mode])
+}
+
+
+model DataFeed {
+  id               String        @id @default(cuid())
+  modelId          String
+  model            Model         @relation(fields: [modelId], references: [id])
+  kind             DataSourceKind
+  intervalSpec     String?       // cron lub skrót (np. "5m")
+  frequencyValue   Int   @default(1)
+  frequencyUnit    FrequencyUnit @default(d)
+  active           Boolean       @default(true)
+  lastRunAt        DateTime?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @default(now()) @updatedAt
+
+  @@index([modelId, active])
+}
+
+model DataImport {
+  id            String        @id @default(cuid())
+  modelId       String?
+  model         Model?        @relation(fields: [modelId], references: [id])
+  phase         ImportPhase
+  sourceKind    DataSourceKind
+  sourceRef     String
+  processedSchemaJson Json
+  importOptionsJson   Json
+  startedAt     DateTime?
+  finishedAt    DateTime?
+  dataBlob      Bytes
+  createdAt     DateTime       @default(now())
+
+  @@index([modelId, phase])
+  @@index([createdAt])
+}
+
+model Prediction {
+  id             String        @id @default(cuid())
+  modelId        String
+  model          Model         @relation(fields: [modelId], references: [id])
+  payloadJson    Json          
+  createdAt      DateTime      @default(now())
+
+  @@index([modelId, createdAt])
+}
+
+model Report {
+  id               String     @id @default(cuid())
+  userId           String
+  user             User?      @relation(fields: [userId], references: [id])
+  name             String
+  enabled          Boolean    @default(true)
+  frequencyValue   Int   @default(1)
+  frequencyUnit    FrequencyUnit @default(d)
+  nextRunAt        DateTime?
+  lastRunAt        DateTime?
+  conditionFormula String? @db.Text
+  conditionFormula2 String? @db.Text
+  messageTemplate  String @db.Text
+  messageTemplate2  String? @db.Text
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @default(now()) @updatedAt
+
+  @@index([enabled])
+  @@index([nextRunAt])
+}
+
+model CustomFunction {
+  id         String     @id @default(cuid())
+  userId     String?
+  user       User?      @relation(fields: [userId], references: [id])
+  name       String
+  description String?  @db.Text
+  body       String @db.Text
+  body2      String @db.Text
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @default(now()) @updatedAt
+
+  @@unique([userId, name])
+}
+
+model Widget {
+  id          String     @id @default(cuid())
+  userId      String
+  user        User?      @relation(fields: [userId], references: [id])
+  type        WidgetType
+  title       String?
+  x           Int
+  y           Int
+  w           Int
+  h           Int
+  content     String @db.Text
+  content2    String? @db.Text  
+  configJson  Json?
+  cacheJson   Json?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @default(now()) @updatedAt
+
+  @@index([userId, y, x])
+  @@index([type])
+}
+

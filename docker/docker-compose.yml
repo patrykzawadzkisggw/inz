@@ -1,0 +1,129 @@
+services:
+  mariadb:
+    image: mariadb:11-jammy
+    command: --lower_case_table_names=1
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD:-rootpassword}
+      - MARIADB_DATABASE=${MARIADB_DATABASE:-inz}
+      - MARIADB_USER=${MARIADB_USER:-abc}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD:-password}
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  chronos-api:
+    build:
+      context: ../chronos
+      dockerfile: Dockerfile
+    image: chronos-api:latest
+    environment:
+      - PORT=8000
+    ports:
+      - "${CHRONOS_PORT:-8001}:8000"
+    restart: unless-stopped
+
+  morai-api:
+    build:
+      context: ../morai
+      dockerfile: Dockerfile
+    image: morai-api:latest
+    environment:
+      - PORT=8000
+    ports:
+      - "${MORAI_PORT:-8002}:8000"
+    restart: unless-stopped
+
+  timesfm-api:
+    build:
+      context: ../timesfm
+      dockerfile: Dockerfile
+    image: timesfm-api:latest
+    environment:
+      - PORT=8000
+    ports:
+      - "${TIMESFM_PORT:-8003}:8000"
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    image: backend-api:latest
+    env_file:
+      - ./backend.env
+    environment:
+      - PORT=8000
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      frontend-migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        DATABASE_URL: ${DATABASE_URL:-mysql://abc:password@mariadb:3306/inz}
+        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:-pk_test_aWRlYWwtc2FpbGZpc2gtNzUuY2xlcmsuYWNjb3VudHMuZGV2JA}
+        CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-sk_test_3oS0cCICM1aNqqn43xCuWnrnaPtBHYjpDjkPcX3bWy}
+        NEXT_PUBLIC_CLERK_SIGN_UP_URL: ${NEXT_PUBLIC_CLERK_SIGN_UP_URL:-/sign-up}
+        NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL: ${NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL:-/onboarding}
+        NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL: ${NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL:-/onboarding}
+        NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL: ${NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL:-/}
+        NEXT_PUBLIC_CLERK_SIGN_IN_URL: ${NEXT_PUBLIC_CLERK_SIGN_IN_URL:-/sign-in}
+        API_URL: ${API_URL:-http://backend:8000}
+    image: frontend-app:latest
+    env_file:
+      - ./frontend.env
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      frontend-migrate:
+        condition: service_completed_successfully
+      backend:
+        condition: service_started
+      chronos-api:
+        condition: service_started
+    restart: unless-stopped
+
+  frontend-migrate:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+      target: migrate
+      args:
+        DATABASE_URL: ${DATABASE_URL:-mysql://abc:password@mariadb:3306/inz}
+        NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:-pk_test_aWRlYWwtc2FpbGZpc2gtNzUuY2xlcmsuYWNjb3VudHMuZGV2JA}
+        CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-sk_test_3oS0cCICM1aNqqn43xCuWnrnaPtBHYjpDjkPcX3bWy}
+        NEXT_PUBLIC_CLERK_SIGN_UP_URL: ${NEXT_PUBLIC_CLERK_SIGN_UP_URL:-/sign-up}
+        NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL: ${NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL:-/onboarding}
+        NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL: ${NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL:-/onboarding}
+        NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL: ${NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL:-/}
+        NEXT_PUBLIC_CLERK_SIGN_IN_URL: ${NEXT_PUBLIC_CLERK_SIGN_IN_URL:-/sign-in}
+        API_URL: ${API_URL:-http://backend:8000}
+    image: frontend-migrate:latest
+    env_file:
+      - ./frontend.env
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    restart: "no"
+
+volumes:
+  mariadb_data:

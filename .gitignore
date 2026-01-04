@@ -1,0 +1,11 @@
+.env
+!.env.pst
+antlr-4.13.2-complete.jar
+SGGW-Thesis-LaTeX/
+badania/**/*.java
+badania/**/*.class
+badania/**/*.tokens
+badania/**/*.interp
+frontend.env
+backend.env
+.git.back
