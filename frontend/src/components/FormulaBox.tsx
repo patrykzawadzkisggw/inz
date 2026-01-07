@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import catalog from "@/components/functions_catalog.json";
 import { useUserFunctions } from "@/context/UserFunctionsContext";
+import type { UserFunction } from "@/context/UserFunctionsContext";
 import { useModels } from "@/context/ModelsContext";
 
 export type FormulaBoxProps = {
@@ -15,6 +16,27 @@ export type FormulaBoxProps = {
 type CatalogCategory = {
   category: string;
   items: { name: string; example: string; description: string }[];
+};
+
+const buildUserFunctionExample = (fn: UserFunction): string => {
+  const src = (fn.body || fn.body2 || "").trim();
+  const match = src.match(/function\s+[A-Za-z_]\w*\s*\(([^)]*)\)/i);
+  const paramsRaw = match?.[1]?.trim() || "";
+  if (!paramsRaw) return `${fn.name}()`;
+
+  const params = paramsRaw
+    .split(",")
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .map((p) => {
+      const [name] = p.split("=");
+      const cleaned = (name || "").trim().replace(/[^A-Za-z0-9_]/g, "");
+      return cleaned ? `<${cleaned}>` : "";
+    })
+    .filter(Boolean)
+    .join(", ");
+
+  return `${fn.name}(${params || ""})`;
 };
 
 const FormulaBox = ({
@@ -89,7 +111,6 @@ const FormulaBox = ({
     setSelectedItem("");
   }, [category]);
 
-  // Removed API loader; we use context for functions and models
 
   const { functions } = useUserFunctions();
 
@@ -97,7 +118,7 @@ const FormulaBox = ({
     if (!showCatalog) return;
     const items = functions.map((f) => ({
       name: f.name,
-      example: String(f.body?.trim() || `${f.name}()`),
+      example: buildUserFunctionExample(f),
       description: String(f.description || ""),
     }));
     setUserCat({ category: "Moje funkcje", items });
@@ -106,7 +127,6 @@ const FormulaBox = ({
 
   const { models } = useModels();
 
-  // Build models and predictions categories from ModelsContext
   useEffect(() => {
     if (!showCatalog) return;
     const items = models.map((m) => {
@@ -137,11 +157,10 @@ const FormulaBox = ({
     setPredictionsCat({ category: "Predykcje", items: predItems });
   }, [models, showCatalog]);
 
-  // Models now come from context; no API call
 
   return (
-    <div className="grid gap-4 mb-4 md:grid-cols-2">
-      <div className="md:col-span-2">
+    <div className="grid gap-4 mb-4 grid-cols-2">
+      <div className="col-span-2">
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           {Title}
         </label>
@@ -216,7 +235,7 @@ const FormulaBox = ({
               ))}
             </select>
           </div>
-          <div className="col-span-2 md:col-span-2 text-xs text-gray-500 dark:text-gray-400 min-h-4">
+          <div className="col-span-2 text-xs text-gray-500 dark:text-gray-400 min-h-4">
             {selectedItem &&
               items.find((i) => i.name === selectedItem)?.description}
           </div>

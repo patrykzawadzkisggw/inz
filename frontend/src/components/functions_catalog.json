@@ -1,4 +1,16 @@
-[
+[{
+    "category": "podstawowe",
+    "items": [
+      { "name": "Print", "example": "Print(<tekst_do_wypisania>)", "description": "Wypisuje tekst lub wartość na stdout." },
+      { "name": "DisplayTable", "example": "DisplayTable(<tabela>)", "description": "Wyświetla tabelę w wynikach (tablica obiektów lub rekordów)." },
+      { "name": "DisplayChart", "example": "DisplayChart(<wykres>, <charttype?>)", "description": "Wyświetla wykres; opcjonalnie podaj typ (np. line, bar)." },
+      { "name": "CreateDF", "example": "CreateDF(<tab1>, <label1>, <tab2>, <label2>...)", "description": "Tworzy jeden dataframe z wielu tablic z podpisami kolumn." },
+      { "name": "if", "example": "if (<warunek>) {\n  <instrukcje>\n} else {\n  <instrukcje>\n}", "description": "Instrukcja warunkowa zgodnie z gramatyką if (expr) { ... } else { ... }" },
+      { "name": "while", "example": "while (<warunek>) {\n  <instrukcje>\n}", "description": "Pętla while (expr) { ... }" },
+      { "name": "for", "example": "for i in <kolekcja> {\n  <instrukcje>\n}", "description": "Iteracja po elementach kolekcji: for ID in expression { ... }" },
+      { "name": "case when", "example": "case\n  when <warunek1> then <wynik1>\n  when <warunek2> then <wynik2>\n  else <wynik_else>\nend", "description": "Wyrażenie warunkowe case when ... end zgodnie z gramatyką caseExpr." }
+    ]
+  },
   {
     "category": "finansowe",
     "items": [

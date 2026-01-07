@@ -5,6 +5,10 @@
 - docker/ — pliki Compose + env template do szybkiego startu całego stosu.
 - docker-compose (skrócony start) — patrz niżej w sekcji „Szybki start (Docker)”.
 
+## Dokumentacja
+
+- **Dokumentacja języka:** plik `dokumentacjaEconLang.pdf` — zawiera opis składni i przykłady, pomaga nauczyć się pisać skrypty w niestandardowym języku EconLang.
+- **Instrukcja użytkownika:** plik `korzystanie_z_aplikacji.pdf` — opisuje, jak korzystać z aplikacji webowej (logowanie, uruchamianie harmonogramów, generowanie raportów itp.).
 ## Szybki start (Docker)
 1) Skopiuj szablony env: `docker/*.pst -> docker/*.env`, `backend/.env.pst -> backend/.env`, `frontend/.env.pst -> frontend/.env` i uzupełnij wartości w `<>`.
 2) Zbuduj i uruchom całość: `cd docker && docker compose up --build`.
