@@ -25,7 +25,9 @@ block: '{' statement* '}' ;
 expression: orExpr;
 orExpr: andExpr (OR andExpr)*;
 andExpr: equalityExpr (AND equalityExpr)*;
-equalityExpr: relationalExpr ((EQ | NEQ) relationalExpr)*;
+equalityExpr: relationalExpr ((EQ | EQEQ | NEQ) relationalExpr)*;
+
+
 
 relationalExpr
         : additiveExpr (
@@ -237,6 +239,7 @@ MUL: '*';
 DIV: '/';
 ADD: '+';
 SUB: '-';
+EQEQ: '==';
 EQ: '=';
 NEQ: '!=' | '<>';
 LT: '<';

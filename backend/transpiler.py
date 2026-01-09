@@ -113,8 +113,6 @@ class Transpiler(EconLangVisitor):
             self.visit(ctx.loopStatement())
         elif ctx.returnStatement():
             self.emit(self.visit(ctx.returnStatement()))
-        elif ctx.alertStatement():
-            self.emit(self.visit(ctx.alertStatement()))
         elif ctx.expression():
             self.emit(self.visit(ctx.expression()))
         return None
@@ -198,6 +196,12 @@ class Transpiler(EconLangVisitor):
         out = [self.visit(ctx.relationalExpr(0))]
         for i in range(1, len(ctx.relationalExpr())):
             op_token = ctx.getChild(2*i - 1).getText()
+            if getattr(self, "_in_sql", False):
+                if op_token == '==':
+                    op_token = '='
+            else:
+                if op_token == '=':
+                    op_token = '=='
             out.append(op_token)
             out.append(self.visit(ctx.relationalExpr(i)))
         return " ".join(out)
@@ -298,22 +302,12 @@ class Transpiler(EconLangVisitor):
             return self.visit(ctx.functionCall())
         if ctx.dataLoad():
             return self.visit(ctx.dataLoad())
-        if ctx.forecastCall():
-            return self.visit(ctx.forecastCall())
-        if ctx.indicatorCall():
-            return self.visit(ctx.indicatorCall())
         if ctx.arrayExpr():
             return self.visit(ctx.arrayExpr())
-        # AT_VAR token: variable injection marker like @a
         if ctx.AT_VAR():
-            # return raw token (e.g. '@a') so later processing can convert it into
-            # a python f-string placeholder or treat it as a function name.
             return ctx.AT_VAR().getText()
-        # Handle identifiers: support qualified ids via qid (e.g. a.ds)
         if getattr(ctx, 'qid', None) and ctx.qid():
             qname = ctx.qid().getText()
-            # If we're in a SQL-style WHERE mapped to a dataframe var and the
-            # qname is a plain identifier (no dot), map to dataframe lookup
             if self._sql_where and self._sql_dfvar and '.' not in qname:
                 return f"{self._sql_dfvar}[{repr(qname)}]"
             return qname

@@ -1,4 +1,4 @@
-// Generated from c:/Users/patryk/Desktop/inz/backend/EconLang.g4 by ANTLR 4.13.1
+// Generated from EconLang.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
 public class EconLangParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.13.1", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -28,8 +28,8 @@ public class EconLangParser extends Parser {
 		HAVINGKW=68, QUALIFYKW=69, UNIONKW=70, INTERSECTKW=71, EXCEPTKW=72, NULLS=73, 
 		FIRST=74, LAST=75, BETWEENKW=76, LIKEKW=77, ILIKEKW=78, ISKW=79, NULLKW=80, 
 		EXISTSKW=81, CASEKW=82, WHENKW=83, THENKW=84, ENDKW=85, MUL=86, DIV=87, 
-		ADD=88, SUB=89, EQEQ=90, EQ=91, NEQ=92, LT=93, GT=94, LE=95, GE=96, ID=97, 
-		AT_VAR=98, NUMBER=99, STRING=100, DATE=101, WS=102, COMMENT=103, LINE_COMMENT=104;
+		ADD=88, SUB=89, EQ=90, NEQ=91, LT=92, GT=93, LE=94, GE=95, ID=96, AT_VAR=97, 
+		NUMBER=98, STRING=99, DATE=100, WS=101, COMMENT=102, LINE_COMMENT=103;
 	public static final int
 		RULE_program = 0, RULE_statement = 1, RULE_declaration = 2, RULE_assignment = 3, 
 		RULE_functionDef = 4, RULE_paramList = 5, RULE_ifStatement = 6, RULE_loopStatement = 7, 
@@ -76,8 +76,7 @@ public class EconLangParser extends Parser {
 			"'on'", "'using'", "'having'", "'qualify'", "'union'", "'intersect'", 
 			"'except'", "'nulls'", "'first'", "'last'", "'between'", "'like'", "'ilike'", 
 			"'is'", "'null'", "'exists'", "'case'", "'when'", "'then'", "'end'", 
-			"'*'", "'/'", "'+'", "'-'", "'=='", "'='", null, "'<'", "'>'", "'<='", 
-			"'>='"
+			"'*'", "'/'", "'+'", "'-'", "'='", null, "'<'", "'>'", "'<='", "'>='"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -94,7 +93,7 @@ public class EconLangParser extends Parser {
 			"HAVINGKW", "QUALIFYKW", "UNIONKW", "INTERSECTKW", "EXCEPTKW", "NULLS", 
 			"FIRST", "LAST", "BETWEENKW", "LIKEKW", "ILIKEKW", "ISKW", "NULLKW", 
 			"EXISTSKW", "CASEKW", "WHENKW", "THENKW", "ENDKW", "MUL", "DIV", "ADD", 
-			"SUB", "EQEQ", "EQ", "NEQ", "LT", "GT", "LE", "GE", "ID", "AT_VAR", "NUMBER", 
+			"SUB", "EQ", "NEQ", "LT", "GT", "LE", "GE", "ID", "AT_VAR", "NUMBER", 
 			"STRING", "DATE", "WS", "COMMENT", "LINE_COMMENT"
 		};
 	}
@@ -162,6 +161,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterProgram(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitProgram(this);
+		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -174,7 +181,7 @@ public class EconLangParser extends Parser {
 			setState(115);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 67560604367682052L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 2031619L) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 67560604367682052L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 1015811L) != 0)) {
 				{
 				{
 				setState(112);
@@ -227,6 +234,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitStatement(this);
+		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -316,6 +331,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_declaration; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterDeclaration(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitDeclaration(this);
+		}
 	}
 
 	public final DeclarationContext declaration() throws RecognitionException {
@@ -356,6 +379,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_assignment; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterAssignment(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitAssignment(this);
+		}
 	}
 
 	public final AssignmentContext assignment() throws RecognitionException {
@@ -397,6 +428,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionDef; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterFunctionDef(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitFunctionDef(this);
+		}
 	}
 
 	public final FunctionDefContext functionDef() throws RecognitionException {
@@ -449,6 +488,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_paramList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterParamList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitParamList(this);
+		}
 	}
 
 	public final ParamListContext paramList() throws RecognitionException {
@@ -506,6 +553,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_ifStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterIfStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitIfStatement(this);
+		}
 	}
 
 	public final IfStatementContext ifStatement() throws RecognitionException {
@@ -566,6 +621,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_loopStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterLoopStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitLoopStatement(this);
+		}
 	}
 
 	public final LoopStatementContext loopStatement() throws RecognitionException {
@@ -630,6 +693,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_returnStatement; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterReturnStatement(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitReturnStatement(this);
+		}
 	}
 
 	public final ReturnStatementContext returnStatement() throws RecognitionException {
@@ -669,6 +740,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_block; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterBlock(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitBlock(this);
+		}
 	}
 
 	public final BlockContext block() throws RecognitionException {
@@ -683,7 +762,7 @@ public class EconLangParser extends Parser {
 			setState(192);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 67560604367682052L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 2031619L) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 67560604367682052L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 1015811L) != 0)) {
 				{
 				{
 				setState(189);
@@ -718,6 +797,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitExpression(this);
+		}
 	}
 
 	public final ExpressionContext expression() throws RecognitionException {
@@ -757,6 +844,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_orExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterOrExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitOrExpr(this);
+		}
 	}
 
 	public final OrExprContext orExpr() throws RecognitionException {
@@ -815,6 +910,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_andExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterAndExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitAndExpr(this);
+		}
 	}
 
 	public final AndExprContext andExpr() throws RecognitionException {
@@ -869,10 +972,6 @@ public class EconLangParser extends Parser {
 		public TerminalNode EQ(int i) {
 			return getToken(EconLangParser.EQ, i);
 		}
-		public List<TerminalNode> EQEQ() { return getTokens(EconLangParser.EQEQ); }
-		public TerminalNode EQEQ(int i) {
-			return getToken(EconLangParser.EQEQ, i);
-		}
 		public List<TerminalNode> NEQ() { return getTokens(EconLangParser.NEQ); }
 		public TerminalNode NEQ(int i) {
 			return getToken(EconLangParser.NEQ, i);
@@ -881,6 +980,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_equalityExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterEqualityExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitEqualityExpr(this);
+		}
 	}
 
 	public final EqualityExprContext equalityExpr() throws RecognitionException {
@@ -902,7 +1009,7 @@ public class EconLangParser extends Parser {
 					{
 					setState(216);
 					_la = _input.LA(1);
-					if ( !(((((_la - 90)) & ~0x3f) == 0 && ((1L << (_la - 90)) & 7L) != 0)) ) {
+					if ( !(_la==EQ || _la==NEQ) ) {
 					_errHandler.recoverInline(this);
 					}
 					else {
@@ -1005,6 +1112,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_relationalExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterRelationalExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitRelationalExpr(this);
+		}
 	}
 
 	public final RelationalExprContext relationalExpr() throws RecognitionException {
@@ -1051,7 +1166,7 @@ public class EconLangParser extends Parser {
 							{
 							setState(224);
 							_la = _input.LA(1);
-							if ( !(((((_la - 93)) & ~0x3f) == 0 && ((1L << (_la - 93)) & 15L) != 0)) ) {
+							if ( !(((((_la - 92)) & ~0x3f) == 0 && ((1L << (_la - 92)) & 15L) != 0)) ) {
 							_errHandler.recoverInline(this);
 							}
 							else {
@@ -1222,6 +1337,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_additiveExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterAdditiveExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitAdditiveExpr(this);
+		}
 	}
 
 	public final AdditiveExprContext additiveExpr() throws RecognitionException {
@@ -1293,6 +1416,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_multiplicativeExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterMultiplicativeExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitMultiplicativeExpr(this);
+		}
 	}
 
 	public final MultiplicativeExprContext multiplicativeExpr() throws RecognitionException {
@@ -1357,6 +1488,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_unaryExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterUnaryExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitUnaryExpr(this);
+		}
 	}
 
 	public final UnaryExprContext unaryExpr() throws RecognitionException {
@@ -1444,6 +1583,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_primary; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterPrimary(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitPrimary(this);
+		}
 	}
 
 	public final PrimaryContext primary() throws RecognitionException {
@@ -1568,6 +1715,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_qid; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterQid(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitQid(this);
+		}
 	}
 
 	public final QidContext qid() throws RecognitionException {
@@ -1620,6 +1775,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_functionCall; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterFunctionCall(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitFunctionCall(this);
+		}
 	}
 
 	public final FunctionCallContext functionCall() throws RecognitionException {
@@ -1636,7 +1799,7 @@ public class EconLangParser extends Parser {
 			setState(319);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 139618198405267972L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 2031651L) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 139618198405267972L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 1015843L) != 0)) {
 				{
 				setState(318);
 				funcArgs();
@@ -1673,6 +1836,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_funcName; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterFuncName(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitFuncName(this);
+		}
 	}
 
 	public final FuncNameContext funcName() throws RecognitionException {
@@ -1721,6 +1892,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_funcArgs; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterFuncArgs(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitFuncArgs(this);
+		}
 	}
 
 	public final FuncArgsContext funcArgs() throws RecognitionException {
@@ -1817,6 +1996,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_caseExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterCaseExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitCaseExpr(this);
+		}
 	}
 
 	public final CaseExprContext caseExpr() throws RecognitionException {
@@ -1831,7 +2018,7 @@ public class EconLangParser extends Parser {
 			setState(339);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 67560604367340036L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 2031619L) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 67560604367340036L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 1015811L) != 0)) {
 				{
 				setState(338);
 				expression();
@@ -1891,6 +2078,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_whenClause; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterWhenClause(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitWhenClause(this);
+		}
 	}
 
 	public final WhenClauseContext whenClause() throws RecognitionException {
@@ -1930,6 +2125,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_elseClause; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterElseClause(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitElseClause(this);
+		}
 	}
 
 	public final ElseClauseContext elseClause() throws RecognitionException {
@@ -1967,6 +2170,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_argList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterArgList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitArgList(this);
+		}
 	}
 
 	public final ArgListContext argList() throws RecognitionException {
@@ -2020,6 +2231,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arg; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterArg(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitArg(this);
+		}
 	}
 
 	public final ArgContext arg() throws RecognitionException {
@@ -2074,6 +2293,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_namedArg; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterNamedArg(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitNamedArg(this);
+		}
 	}
 
 	public final NamedArgContext namedArg() throws RecognitionException {
@@ -2114,6 +2341,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_dataLoad; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterDataLoad(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitDataLoad(this);
+		}
 	}
 
 	public final DataLoadContext dataLoad() throws RecognitionException {
@@ -2178,6 +2413,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_columns; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterColumns(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitColumns(this);
+		}
 	}
 
 	public final ColumnsContext columns() throws RecognitionException {
@@ -2232,6 +2475,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_series; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterSeries(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitSeries(this);
+		}
 	}
 
 	public final SeriesContext series() throws RecognitionException {
@@ -2286,6 +2537,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_params; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterParams(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitParams(this);
+		}
 	}
 
 	public final ParamsContext params() throws RecognitionException {
@@ -2341,6 +2600,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_period; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterPeriod(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitPeriod(this);
+		}
 	}
 
 	public final PeriodContext period() throws RecognitionException {
@@ -2379,6 +2646,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_arrayExpr; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterArrayExpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitArrayExpr(this);
+		}
 	}
 
 	public final ArrayExprContext arrayExpr() throws RecognitionException {
@@ -2397,7 +2672,7 @@ public class EconLangParser extends Parser {
 				setState(425);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 67560604367340036L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 2031619L) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 67560604367340036L) != 0) || ((((_la - 81)) & ~0x3f) == 0 && ((1L << (_la - 81)) & 1015811L) != 0)) {
 					{
 					setState(417);
 					expression();
@@ -2463,6 +2738,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_seriesOp; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterSeriesOp(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitSeriesOp(this);
+		}
 	}
 
 	public final SeriesOpContext seriesOp() throws RecognitionException {
@@ -2558,6 +2841,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_window; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterWindow(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitWindow(this);
+		}
 	}
 
 	public final WindowContext window() throws RecognitionException {
@@ -2613,6 +2904,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_sqlQuery; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterSqlQuery(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitSqlQuery(this);
+		}
 	}
 
 	public final SqlQueryContext sqlQuery() throws RecognitionException {
@@ -2714,6 +3013,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_selectCore; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterSelectCore(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitSelectCore(this);
+		}
 	}
 
 	public final SelectCoreContext selectCore() throws RecognitionException {
@@ -2835,6 +3142,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_setOperator; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterSetOperator(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitSetOperator(this);
+		}
 	}
 
 	public final SetOperatorContext setOperator() throws RecognitionException {
@@ -2903,6 +3218,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tableRef; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterTableRef(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitTableRef(this);
+		}
 	}
 
 	public final TableRefContext tableRef() throws RecognitionException {
@@ -2944,6 +3267,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_alias; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterAlias(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitAlias(this);
+		}
 	}
 
 	public final AliasContext alias() throws RecognitionException {
@@ -3011,6 +3342,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_joinClause; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterJoinClause(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitJoinClause(this);
+		}
 	}
 
 	public final JoinClauseContext joinClause() throws RecognitionException {
@@ -3113,6 +3452,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_groupByList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterGroupByList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitGroupByList(this);
+		}
 	}
 
 	public final GroupByListContext groupByList() throws RecognitionException {
@@ -3171,6 +3518,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_limitClause; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterLimitClause(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitLimitClause(this);
+		}
 	}
 
 	public final LimitClauseContext limitClause() throws RecognitionException {
@@ -3286,6 +3641,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_selectItems; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterSelectItems(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitSelectItems(this);
+		}
 	}
 
 	public final SelectItemsContext selectItems() throws RecognitionException {
@@ -3356,6 +3719,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_tableStar; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterTableStar(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitTableStar(this);
+		}
 	}
 
 	public final TableStarContext tableStar() throws RecognitionException {
@@ -3394,6 +3765,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_selectItem; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterSelectItem(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitSelectItem(this);
+		}
 	}
 
 	public final SelectItemContext selectItem() throws RecognitionException {
@@ -3441,6 +3820,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_aggFunc; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterAggFunc(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitAggFunc(this);
+		}
 	}
 
 	public final AggFuncContext aggFunc() throws RecognitionException {
@@ -3501,6 +3888,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_aggArith; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterAggArith(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitAggArith(this);
+		}
 	}
 
 	public final AggArithContext aggArith() throws RecognitionException {
@@ -3574,6 +3969,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_aggTerm; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterAggTerm(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitAggTerm(this);
+		}
 	}
 
 	public final AggTermContext aggTerm() throws RecognitionException {
@@ -3634,11 +4037,11 @@ public class EconLangParser extends Parser {
 				setState(607);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if (((((_la - 86)) & ~0x3f) == 0 && ((1L << (_la - 86)) & 10241L) != 0)) {
+				if (((((_la - 86)) & ~0x3f) == 0 && ((1L << (_la - 86)) & 5121L) != 0)) {
 					{
 					setState(599);
 					_la = _input.LA(1);
-					if ( !(((((_la - 86)) & ~0x3f) == 0 && ((1L << (_la - 86)) & 10241L) != 0)) ) {
+					if ( !(((((_la - 86)) & ~0x3f) == 0 && ((1L << (_la - 86)) & 5121L) != 0)) ) {
 					_errHandler.recoverInline(this);
 					}
 					else {
@@ -3656,7 +4059,7 @@ public class EconLangParser extends Parser {
 						match(T__3);
 						setState(601);
 						_la = _input.LA(1);
-						if ( !(((((_la - 86)) & ~0x3f) == 0 && ((1L << (_la - 86)) & 10241L) != 0)) ) {
+						if ( !(((((_la - 86)) & ~0x3f) == 0 && ((1L << (_la - 86)) & 5121L) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
 						else {
@@ -3727,6 +4130,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_source; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterSource(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitSource(this);
+		}
 	}
 
 	public final SourceContext source() throws RecognitionException {
@@ -3795,6 +4206,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_idList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterIdList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitIdList(this);
+		}
 	}
 
 	public final IdListContext idList() throws RecognitionException {
@@ -3863,6 +4282,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_exprList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterExprList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitExprList(this);
+		}
 	}
 
 	public final ExprListContext exprList() throws RecognitionException {
@@ -3915,6 +4342,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_orderList; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterOrderList(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitOrderList(this);
+		}
 	}
 
 	public final OrderListContext orderList() throws RecognitionException {
@@ -3972,6 +4407,14 @@ public class EconLangParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_orderItem; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).enterOrderItem(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EconLangListener ) ((EconLangListener)listener).exitOrderItem(this);
+		}
 	}
 
 	public final OrderItemContext orderItem() throws RecognitionException {
@@ -4049,7 +4492,7 @@ public class EconLangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001h\u0294\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001g\u0294\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
@@ -4138,10 +4581,10 @@ public class EconLangParser extends Parser {
 		"7\u028b\b7\u00017\u00037\u028e\b7\u00017\u00017\u00037\u0292\b7\u0001"+
 		"7\u0000\u00008\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016"+
 		"\u0018\u001a\u001c\u001e \"$&(*,.02468:<>@BDFHJLNPRTVXZ\\^`bdfhjln\u0000"+
-		"\u0013\u0001\u0000Z\\\u0001\u0000]`\u0001\u0000MN\u0001\u0000XY\u0001"+
-		"\u0000VW\u0004\u0000\u000e\u000e !47ab\u0001\u0000\u0016\u0017\u0001\u0000"+
-		" \"\u0001\u0000%&\u0001\u000089\u0002\u0000;>@@\u0001\u0000bc\u0002\u0000"+
-		" !47\u0001\u0000VY\u0002\u0000VVaa\u0001\u0000ab\u0003\u0000VVaacc\u0001"+
+		"\u0013\u0001\u0000Z[\u0001\u0000\\_\u0001\u0000MN\u0001\u0000XY\u0001"+
+		"\u0000VW\u0004\u0000\u000e\u000e !47`a\u0001\u0000\u0016\u0017\u0001\u0000"+
+		" \"\u0001\u0000%&\u0001\u000089\u0002\u0000;>@@\u0001\u0000ab\u0002\u0000"+
+		" !47\u0001\u0000VY\u0002\u0000VV``\u0001\u0000`a\u0003\u0000VV``bb\u0001"+
 		"\u000012\u0001\u0000JK\u02c1\u0000s\u0001\u0000\u0000\u0000\u0002\u0085"+
 		"\u0001\u0000\u0000\u0000\u0004\u0087\u0001\u0000\u0000\u0000\u0006\u008c"+
 		"\u0001\u0000\u0000\u0000\b\u0090\u0001\u0000\u0000\u0000\n\u0099\u0001"+
@@ -4180,17 +4623,17 @@ public class EconLangParser extends Parser {
 		"\u0000\u0000\u0085~\u0001\u0000\u0000\u0000\u0085\u007f\u0001\u0000\u0000"+
 		"\u0000\u0085\u0080\u0001\u0000\u0000\u0000\u0085\u0081\u0001\u0000\u0000"+
 		"\u0000\u0085\u0082\u0001\u0000\u0000\u0000\u0086\u0003\u0001\u0000\u0000"+
-		"\u0000\u0087\u0088\u0005\u000b\u0000\u0000\u0088\u0089\u0005a\u0000\u0000"+
-		"\u0089\u008a\u0005[\u0000\u0000\u008a\u008b\u0003\u0014\n\u0000\u008b"+
-		"\u0005\u0001\u0000\u0000\u0000\u008c\u008d\u0005a\u0000\u0000\u008d\u008e"+
-		"\u0005[\u0000\u0000\u008e\u008f\u0003\u0014\n\u0000\u008f\u0007\u0001"+
-		"\u0000\u0000\u0000\u0090\u0091\u0005\f\u0000\u0000\u0091\u0092\u0005a"+
+		"\u0000\u0087\u0088\u0005\u000b\u0000\u0000\u0088\u0089\u0005`\u0000\u0000"+
+		"\u0089\u008a\u0005Z\u0000\u0000\u008a\u008b\u0003\u0014\n\u0000\u008b"+
+		"\u0005\u0001\u0000\u0000\u0000\u008c\u008d\u0005`\u0000\u0000\u008d\u008e"+
+		"\u0005Z\u0000\u0000\u008e\u008f\u0003\u0014\n\u0000\u008f\u0007\u0001"+
+		"\u0000\u0000\u0000\u0090\u0091\u0005\f\u0000\u0000\u0091\u0092\u0005`"+
 		"\u0000\u0000\u0092\u0094\u0005\u0002\u0000\u0000\u0093\u0095\u0003\n\u0005"+
 		"\u0000\u0094\u0093\u0001\u0000\u0000\u0000\u0094\u0095\u0001\u0000\u0000"+
 		"\u0000\u0095\u0096\u0001\u0000\u0000\u0000\u0096\u0097\u0005\u0003\u0000"+
 		"\u0000\u0097\u0098\u0003\u0012\t\u0000\u0098\t\u0001\u0000\u0000\u0000"+
-		"\u0099\u009e\u0005a\u0000\u0000\u009a\u009b\u0005\u0004\u0000\u0000\u009b"+
-		"\u009d\u0005a\u0000\u0000\u009c\u009a\u0001\u0000\u0000\u0000\u009d\u00a0"+
+		"\u0099\u009e\u0005`\u0000\u0000\u009a\u009b\u0005\u0004\u0000\u0000\u009b"+
+		"\u009d\u0005`\u0000\u0000\u009c\u009a\u0001\u0000\u0000\u0000\u009d\u00a0"+
 		"\u0001\u0000\u0000\u0000\u009e\u009c\u0001\u0000\u0000\u0000\u009e\u009f"+
 		"\u0001\u0000\u0000\u0000\u009f\u000b\u0001\u0000\u0000\u0000\u00a0\u009e"+
 		"\u0001\u0000\u0000\u0000\u00a1\u00a2\u0005\u000e\u0000\u0000\u00a2\u00a3"+
@@ -4198,7 +4641,7 @@ public class EconLangParser extends Parser {
 		"\u0003\u0000\u0000\u00a5\u00a8\u0003\u0012\t\u0000\u00a6\u00a7\u0005\u000f"+
 		"\u0000\u0000\u00a7\u00a9\u0003\u0012\t\u0000\u00a8\u00a6\u0001\u0000\u0000"+
 		"\u0000\u00a8\u00a9\u0001\u0000\u0000\u0000\u00a9\r\u0001\u0000\u0000\u0000"+
-		"\u00aa\u00ab\u0005\u0010\u0000\u0000\u00ab\u00ac\u0005a\u0000\u0000\u00ac"+
+		"\u00aa\u00ab\u0005\u0010\u0000\u0000\u00ab\u00ac\u0005`\u0000\u0000\u00ac"+
 		"\u00ad\u0005\u0011\u0000\u0000\u00ad\u00ae\u0003\u0014\n\u0000\u00ae\u00af"+
 		"\u0003\u0012\t\u0000\u00af\u00b7\u0001\u0000\u0000\u0000\u00b0\u00b1\u0005"+
 		"\u0012\u0000\u0000\u00b1\u00b2\u0005\u0002\u0000\u0000\u00b2\u00b3\u0003"+
@@ -4268,8 +4711,8 @@ public class EconLangParser extends Parser {
 		"\u0002\u0000\u0000\u0123\u0124\u0003J%\u0000\u0124\u0125\u0005\u0003\u0000"+
 		"\u0000\u0125\u0133\u0001\u0000\u0000\u0000\u0126\u0133\u0003J%\u0000\u0127"+
 		"\u0133\u0003.\u0017\u0000\u0128\u0133\u0003D\"\u0000\u0129\u0133\u0005"+
-		"b\u0000\u0000\u012a\u0133\u0003&\u0013\u0000\u012b\u0133\u0005c\u0000"+
-		"\u0000\u012c\u0133\u0005d\u0000\u0000\u012d\u0133\u0005e\u0000\u0000\u012e"+
+		"a\u0000\u0000\u012a\u0133\u0003&\u0013\u0000\u012b\u0133\u0005b\u0000"+
+		"\u0000\u012c\u0133\u0005c\u0000\u0000\u012d\u0133\u0005d\u0000\u0000\u012e"+
 		"\u012f\u0005\u0002\u0000\u0000\u012f\u0130\u0003\u0014\n\u0000\u0130\u0131"+
 		"\u0005\u0003\u0000\u0000\u0131\u0133\u0001\u0000\u0000\u0000\u0132\u0120"+
 		"\u0001\u0000\u0000\u0000\u0132\u0121\u0001\u0000\u0000\u0000\u0132\u0122"+
@@ -4278,8 +4721,8 @@ public class EconLangParser extends Parser {
 		"\u0001\u0000\u0000\u0000\u0132\u012a\u0001\u0000\u0000\u0000\u0132\u012b"+
 		"\u0001\u0000\u0000\u0000\u0132\u012c\u0001\u0000\u0000\u0000\u0132\u012d"+
 		"\u0001\u0000\u0000\u0000\u0132\u012e\u0001\u0000\u0000\u0000\u0133%\u0001"+
-		"\u0000\u0000\u0000\u0134\u0139\u0005a\u0000\u0000\u0135\u0136\u0005\u0007"+
-		"\u0000\u0000\u0136\u0138\u0005a\u0000\u0000\u0137\u0135\u0001\u0000\u0000"+
+		"\u0000\u0000\u0000\u0134\u0139\u0005`\u0000\u0000\u0135\u0136\u0005\u0007"+
+		"\u0000\u0000\u0136\u0138\u0005`\u0000\u0000\u0137\u0135\u0001\u0000\u0000"+
 		"\u0000\u0138\u013b\u0001\u0000\u0000\u0000\u0139\u0137\u0001\u0000\u0000"+
 		"\u0000\u0139\u013a\u0001\u0000\u0000\u0000\u013a\'\u0001\u0000\u0000\u0000"+
 		"\u013b\u0139\u0001\u0000\u0000\u0000\u013c\u013d\u0003*\u0015\u0000\u013d"+
@@ -4313,28 +4756,28 @@ public class EconLangParser extends Parser {
 		"\u0000\u0170\u0173\u0003\u0014\n\u0000\u0171\u0173\u0005V\u0000\u0000"+
 		"\u0172\u016f\u0001\u0000\u0000\u0000\u0172\u0170\u0001\u0000\u0000\u0000"+
 		"\u0172\u0171\u0001\u0000\u0000\u0000\u01737\u0001\u0000\u0000\u0000\u0174"+
-		"\u0175\u0005a\u0000\u0000\u0175\u0176\u0005[\u0000\u0000\u0176\u0177\u0003"+
+		"\u0175\u0005`\u0000\u0000\u0175\u0176\u0005Z\u0000\u0000\u0176\u0177\u0003"+
 		"\u0014\n\u0000\u01779\u0001\u0000\u0000\u0000\u0178\u0179\u0005\u0015"+
 		"\u0000\u0000\u0179\u017a\u0005\b\u0000\u0000\u017a\u017b\u0007\u0006\u0000"+
-		"\u0000\u017b\u017c\u0005\u0002\u0000\u0000\u017c\u017d\u0005d\u0000\u0000"+
+		"\u0000\u017b\u017c\u0005\u0002\u0000\u0000\u017c\u017d\u0005c\u0000\u0000"+
 		"\u017d\u017f\u0005\u0004\u0000\u0000\u017e\u0180\u0003<\u001e\u0000\u017f"+
 		"\u017e\u0001\u0000\u0000\u0000\u017f\u0180\u0001\u0000\u0000\u0000\u0180"+
 		"\u0181\u0001\u0000\u0000\u0000\u0181\u0182\u0005\u0003\u0000\u0000\u0182"+
 		";\u0001\u0000\u0000\u0000\u0183\u0184\u0005\t\u0000\u0000\u0184\u0189"+
-		"\u0005a\u0000\u0000\u0185\u0186\u0005\u0004\u0000\u0000\u0186\u0188\u0005"+
-		"a\u0000\u0000\u0187\u0185\u0001\u0000\u0000\u0000\u0188\u018b\u0001\u0000"+
+		"\u0005`\u0000\u0000\u0185\u0186\u0005\u0004\u0000\u0000\u0186\u0188\u0005"+
+		"`\u0000\u0000\u0187\u0185\u0001\u0000\u0000\u0000\u0188\u018b\u0001\u0000"+
 		"\u0000\u0000\u0189\u0187\u0001\u0000\u0000\u0000\u0189\u018a\u0001\u0000"+
 		"\u0000\u0000\u018a\u018c\u0001\u0000\u0000\u0000\u018b\u0189\u0001\u0000"+
 		"\u0000\u0000\u018c\u018d\u0005\n\u0000\u0000\u018d=\u0001\u0000\u0000"+
-		"\u0000\u018e\u0191\u0005a\u0000\u0000\u018f\u0191\u0003\u0014\n\u0000"+
+		"\u0000\u018e\u0191\u0005`\u0000\u0000\u018f\u0191\u0003\u0014\n\u0000"+
 		"\u0190\u018e\u0001\u0000\u0000\u0000\u0190\u018f\u0001\u0000\u0000\u0000"+
-		"\u0191?\u0001\u0000\u0000\u0000\u0192\u0193\u0005a\u0000\u0000\u0193\u0194"+
-		"\u0005[\u0000\u0000\u0194\u019b\u0005c\u0000\u0000\u0195\u0196\u0005\u0004"+
-		"\u0000\u0000\u0196\u0197\u0005a\u0000\u0000\u0197\u0198\u0005[\u0000\u0000"+
-		"\u0198\u019a\u0005c\u0000\u0000\u0199\u0195\u0001\u0000\u0000\u0000\u019a"+
+		"\u0191?\u0001\u0000\u0000\u0000\u0192\u0193\u0005`\u0000\u0000\u0193\u0194"+
+		"\u0005Z\u0000\u0000\u0194\u019b\u0005b\u0000\u0000\u0195\u0196\u0005\u0004"+
+		"\u0000\u0000\u0196\u0197\u0005`\u0000\u0000\u0197\u0198\u0005Z\u0000\u0000"+
+		"\u0198\u019a\u0005b\u0000\u0000\u0199\u0195\u0001\u0000\u0000\u0000\u019a"+
 		"\u019d\u0001\u0000\u0000\u0000\u019b\u0199\u0001\u0000\u0000\u0000\u019b"+
 		"\u019c\u0001\u0000\u0000\u0000\u019cA\u0001\u0000\u0000\u0000\u019d\u019b"+
-		"\u0001\u0000\u0000\u0000\u019e\u019f\u0005c\u0000\u0000\u019fC\u0001\u0000"+
+		"\u0001\u0000\u0000\u0000\u019e\u019f\u0005b\u0000\u0000\u019fC\u0001\u0000"+
 		"\u0000\u0000\u01a0\u01a9\u0005\t\u0000\u0000\u01a1\u01a6\u0003\u0014\n"+
 		"\u0000\u01a2\u01a3\u0005\u0004\u0000\u0000\u01a3\u01a5\u0003\u0014\n\u0000"+
 		"\u01a4\u01a2\u0001\u0000\u0000\u0000\u01a5\u01a8\u0001\u0000\u0000\u0000"+
@@ -4343,18 +4786,18 @@ public class EconLangParser extends Parser {
 		"\u01a9\u01a1\u0001\u0000\u0000\u0000\u01a9\u01aa\u0001\u0000\u0000\u0000"+
 		"\u01aa\u01ab\u0001\u0000\u0000\u0000\u01ab\u01ae\u0005\n\u0000\u0000\u01ac"+
 		"\u01ae\u0003F#\u0000\u01ad\u01a0\u0001\u0000\u0000\u0000\u01ad\u01ac\u0001"+
-		"\u0000\u0000\u0000\u01aeE\u0001\u0000\u0000\u0000\u01af\u01b0\u0005a\u0000"+
+		"\u0000\u0000\u0000\u01aeE\u0001\u0000\u0000\u0000\u01af\u01b0\u0005`\u0000"+
 		"\u0000\u01b0\u01b1\u0005\u001f\u0000\u0000\u01b1\u01b2\u0005\b\u0000\u0000"+
 		"\u01b2\u01b3\u0007\u0007\u0000\u0000\u01b3\u01b5\u0005\u0002\u0000\u0000"+
 		"\u01b4\u01b6\u0003H$\u0000\u01b5\u01b4\u0001\u0000\u0000\u0000\u01b5\u01b6"+
 		"\u0001\u0000\u0000\u0000\u01b6\u01b7\u0001\u0000\u0000\u0000\u01b7\u01bf"+
-		"\u0005\u0003\u0000\u0000\u01b8\u01b9\u0005a\u0000\u0000\u01b9\u01ba\u0005"+
+		"\u0005\u0003\u0000\u0000\u01b8\u01b9\u0005`\u0000\u0000\u01b9\u01ba\u0005"+
 		"\u0007\u0000\u0000\u01ba\u01bb\u0007\b\u0000\u0000\u01bb\u01bc\u0005\u0002"+
-		"\u0000\u0000\u01bc\u01bd\u0005c\u0000\u0000\u01bd\u01bf\u0005\u0003\u0000"+
+		"\u0000\u0000\u01bc\u01bd\u0005b\u0000\u0000\u01bd\u01bf\u0005\u0003\u0000"+
 		"\u0000\u01be\u01af\u0001\u0000\u0000\u0000\u01be\u01b8\u0001\u0000\u0000"+
 		"\u0000\u01bfG\u0001\u0000\u0000\u0000\u01c0\u01c1\u0005#\u0000\u0000\u01c1"+
-		"\u01c2\u0005e\u0000\u0000\u01c2\u01c3\u0005$\u0000\u0000\u01c3\u01c4\u0005"+
-		"e\u0000\u0000\u01c4I\u0001\u0000\u0000\u0000\u01c5\u01cb\u0003L&\u0000"+
+		"\u01c2\u0005d\u0000\u0000\u01c2\u01c3\u0005$\u0000\u0000\u01c3\u01c4\u0005"+
+		"d\u0000\u0000\u01c4I\u0001\u0000\u0000\u0000\u01c5\u01cb\u0003L&\u0000"+
 		"\u01c6\u01c7\u0003N\'\u0000\u01c7\u01c8\u0003L&\u0000\u01c8\u01ca\u0001"+
 		"\u0000\u0000\u0000\u01c9\u01c6\u0001\u0000\u0000\u0000\u01ca\u01cd\u0001"+
 		"\u0000\u0000\u0000\u01cb\u01c9\u0001\u0000\u0000\u0000\u01cb\u01cc\u0001"+
@@ -4387,7 +4830,7 @@ public class EconLangParser extends Parser {
 		"\u0000\u0000\u01f9O\u0001\u0000\u0000\u0000\u01fa\u01fc\u0003f3\u0000"+
 		"\u01fb\u01fd\u0003R)\u0000\u01fc\u01fb\u0001\u0000\u0000\u0000\u01fc\u01fd"+
 		"\u0001\u0000\u0000\u0000\u01fdQ\u0001\u0000\u0000\u0000\u01fe\u01ff\u0005"+
-		"3\u0000\u0000\u01ff\u0202\u0005a\u0000\u0000\u0200\u0202\u0005a\u0000"+
+		"3\u0000\u0000\u01ff\u0202\u0005`\u0000\u0000\u0200\u0202\u0005`\u0000"+
 		"\u0000\u0201\u01fe\u0001\u0000\u0000\u0000\u0201\u0200\u0001\u0000\u0000"+
 		"\u0000\u0202S\u0001\u0000\u0000\u0000\u0203\u0205\u0005A\u0000\u0000\u0204"+
 		"\u0203\u0001\u0000\u0000\u0000\u0204\u0205\u0001\u0000\u0000\u0000\u0205"+
@@ -4420,9 +4863,9 @@ public class EconLangParser extends Parser {
 		"\u0000\u0235\u0238\u0001\u0000\u0000\u0000\u0236\u0234\u0001\u0000\u0000"+
 		"\u0000\u0237\u022d\u0001\u0000\u0000\u0000\u0237\u022e\u0001\u0000\u0000"+
 		"\u0000\u0237\u022f\u0001\u0000\u0000\u0000\u0238[\u0001\u0000\u0000\u0000"+
-		"\u0239\u023a\u0005a\u0000\u0000\u023a\u023b\u0005\u0007\u0000\u0000\u023b"+
+		"\u0239\u023a\u0005`\u0000\u0000\u023a\u023b\u0005\u0007\u0000\u0000\u023b"+
 		"\u023c\u0005V\u0000\u0000\u023c]\u0001\u0000\u0000\u0000\u023d\u0240\u0003"+
-		"\u0014\n\u0000\u023e\u023f\u00053\u0000\u0000\u023f\u0241\u0005a\u0000"+
+		"\u0014\n\u0000\u023e\u023f\u00053\u0000\u0000\u023f\u0241\u0005`\u0000"+
 		"\u0000\u0240\u023e\u0001\u0000\u0000\u0000\u0240\u0241\u0001\u0000\u0000"+
 		"\u0000\u0241_\u0001\u0000\u0000\u0000\u0242\u0243\u0007\f\u0000\u0000"+
 		"\u0243a\u0001\u0000\u0000\u0000\u0244\u0249\u0003d2\u0000\u0245\u0246"+
@@ -4441,12 +4884,12 @@ public class EconLangParser extends Parser {
 		"\u0000\u0000\u0000\u025d\u0260\u0001\u0000\u0000\u0000\u025e\u025c\u0001"+
 		"\u0000\u0000\u0000\u025f\u0257\u0001\u0000\u0000\u0000\u025f\u0260\u0001"+
 		"\u0000\u0000\u0000\u0260\u0261\u0001\u0000\u0000\u0000\u0261\u0266\u0005"+
-		"\u0003\u0000\u0000\u0262\u0266\u0005a\u0000\u0000\u0263\u0266\u0005b\u0000"+
+		"\u0003\u0000\u0000\u0262\u0266\u0005`\u0000\u0000\u0263\u0266\u0005a\u0000"+
 		"\u0000\u0264\u0266\u0005V\u0000\u0000\u0265\u024c\u0001\u0000\u0000\u0000"+
 		"\u0265\u0250\u0001\u0000\u0000\u0000\u0265\u0255\u0001\u0000\u0000\u0000"+
 		"\u0265\u0262\u0001\u0000\u0000\u0000\u0265\u0263\u0001\u0000\u0000\u0000"+
 		"\u0265\u0264\u0001\u0000\u0000\u0000\u0266e\u0001\u0000\u0000\u0000\u0267"+
-		"\u026f\u0005a\u0000\u0000\u0268\u026f\u0003(\u0014\u0000\u0269\u026f\u0003"+
+		"\u026f\u0005`\u0000\u0000\u0268\u026f\u0003(\u0014\u0000\u0269\u026f\u0003"+
 		":\u001d\u0000\u026a\u026b\u0005\u0002\u0000\u0000\u026b\u026c\u0003J%"+
 		"\u0000\u026c\u026d\u0005\u0003\u0000\u0000\u026d\u026f\u0001\u0000\u0000"+
 		"\u0000\u026e\u0267\u0001\u0000\u0000\u0000\u026e\u0268\u0001\u0000\u0000"+
@@ -4464,7 +4907,7 @@ public class EconLangParser extends Parser {
 		"\u0282\u0284\u0003n7\u0000\u0283\u0281\u0001\u0000\u0000\u0000\u0284\u0287"+
 		"\u0001\u0000\u0000\u0000\u0285\u0283\u0001\u0000\u0000\u0000\u0285\u0286"+
 		"\u0001\u0000\u0000\u0000\u0286m\u0001\u0000\u0000\u0000\u0287\u0285\u0001"+
-		"\u0000\u0000\u0000\u0288\u028b\u0003\u0014\n\u0000\u0289\u028b\u0005c"+
+		"\u0000\u0000\u0000\u0288\u028b\u0003\u0014\n\u0000\u0289\u028b\u0005b"+
 		"\u0000\u0000\u028a\u0288\u0001\u0000\u0000\u0000\u028a\u0289\u0001\u0000"+
 		"\u0000\u0000\u028b\u028d\u0001\u0000\u0000\u0000\u028c\u028e\u0007\u0011"+
 		"\u0000\u0000\u028d\u028c\u0001\u0000\u0000\u0000\u028d\u028e\u0001\u0000"+

@@ -21,7 +21,6 @@
       { "name": "ppmt", "example": "ppmt(<rate>, <per>, <nper>, <pv>, <fv>=0, <type>=0)", "description": "Część kapitałowa raty w danym okresie." },
       { "name": "pv", "example": "pv(<rate>, <nper>, <pmt>, <fv>=0, <type>=0)", "description": "Wartość bieżąca strumienia płatności." },
       { "name": "nper", "example": "nper(<rate>, <pmt>, <pv>, <fv>=0, <type>=0)", "description": "Liczba okresów potrzebna do spłaty lub osiągnięcia wartości." },
-      { "name": "npeer", "example": "npeer(<rate>, <pmt>, <pv>, <fv>=0, <type>=0)", "description": "Alias funkcji nper (literówka)." },
       { "name": "rate", "example": "rate(<nper>, <pmt>, <pv>, <fv>=0, <type>=0, <guess>=0.1)", "description": "Wyznacza stopę procentową odpowiadającą parametrom przepływów." },
       { "name": "npv", "example": "npv(<rate>, <cf1>, <cf2>, ...)", "description": "Wartość bieżąca netto przepływów przy zadanej stopie." },
       { "name": "irr", "example": "irr(<cashflows>, <guess>=0.1)", "description": "Wewnętrzna stopa zwrotu dla ciągu przepływów." },
@@ -51,7 +50,7 @@
     "category": "statystyczne",
     "items": [
       { "name": "variance", "example": "variance(<seq>)", "description": "Wariancja populacyjna ciągu." },
-      { "name": "var", "example": "var(<seq>)", "description": "Alias funkcji variance." },
+      { "name": "var", "example": "var(<seq>)", "description": "Wariancja populacyjna ciągu." },
       { "name": "median", "example": "median(<seq>)", "description": "Mediana wartości." },
       { "name": "quantile", "example": "quantile(<seq>, <q>)", "description": "Kwantyl q (0-1)." },
       { "name": "covariance", "example": "covariance(<a>, <b>)", "description": "Kowariancja dwóch serii." },
@@ -65,12 +64,12 @@
   {
     "category": "matematyczne",
     "items": [
-      { "name": "abs_", "example": "abs_(<x>)", "description": "Wartość bezwzględna." },
+      { "name": "abs", "example": "abs(<x>)", "description": "Wartość bezwzględna." },
       { "name": "atn", "example": "atn(<x>)", "description": "Arcus tangens (atan)." },
       { "name": "cos", "example": "cos(<x>)", "description": "Cosinus kąta (radiany)." },
       { "name": "exp", "example": "exp(<x>)", "description": "e do potęgi x." },
       { "name": "fix", "example": "fix(<x>)", "description": "Obcięcie części ułamkowej (trunc)." },
-      { "name": "int_", "example": "int_(<x>)", "description": "Konwersja na liczbę całkowitą." },
+      { "name": "int", "example": "int(<x>)", "description": "Konwersja na liczbę całkowitą." },
       { "name": "log", "example": "log(<x>, <base>=e)", "description": "Logarytm przy podstawie base (domyślnie e)." },
       { "name": "rnd", "example": "rnd()", "description": "Losowa liczba z [0,1)." },
       { "name": "sgn", "example": "sgn(<x>)", "description": "Znak liczby (-1,0,1)." },
@@ -78,24 +77,19 @@
       { "name": "sqr", "example": "sqr(<x>)", "description": "Pierwiastek kwadratowy." },
       { "name": "tan", "example": "tan(<x>)", "description": "Tangens kąta (radiany)." },
       { "name": "avg", "example": "avg(<seq>)", "description": "Średnia arytmetyczna (lowercase token)." },
-      { "name": "average", "example": "average(<seq>)", "description": "Alias średniej arytmetycznej." },
-      { "name": "AVG", "example": "AVG(<seq>)", "description": "Alias wielkimi literami do użycia w DSL." },
-      { "name": "min_", "example": "min_(<a>, <b>, ...)", "description": "Minimum z argumentów (wersja z podkreśleniem)." },
-      { "name": "MIN", "example": "MIN(<a>, <b>, ...)", "description": "Alias wielkimi literami minimum." },
-      { "name": "max_", "example": "max_(<a>, <b>, ...)", "description": "Maksimum z argumentów (wersja z podkreśleniem)." },
-      { "name": "MAX", "example": "MAX(<a>, <b>, ...)", "description": "Alias wielkimi literami maksimum." },
-      { "name": "round_", "example": "round_(<x>, <n>=0)", "description": "Zaokrąglenie do n miejsc." },
-      { "name": "SUM", "example": "SUM(<seq>)", "description": "Suma elementów sekwencji (alias)." },
-      { "name": "MEAN", "example": "MEAN(<seq>)", "description": "Alias średniej arytmetycznej." },
-      { "name": "count", "example": "count(<seq>)", "description": "Liczba elementów sekwencji." },
-      { "name": "COUNT", "example": "COUNT(<seq>)", "description": "Alias wielkimi literami count." }
+      { "name": "min", "example": "min(<a>, <b>, ...)", "description": "Minimum z argumentów." },
+      { "name": "max", "example": "max(<a>, <b>, ...)", "description": "Maksimum z argumentów." },
+      { "name": "round", "example": "round(<x>, <n>=0)", "description": "Zaokrąglenie do n miejsc." },
+      { "name": "sum", "example": "sum(<seq>)", "description": "Suma elementów sekwencji." },
+      { "name": "MEAN", "example": "MEAN(<seq>)", "description": "Średnia arytmetycznej." },
+      { "name": "count", "example": "count(<seq>)", "description": "Liczba elementów sekwencji." }
     ]
   },
   {
     "category": "data",
     "items": [
       { "name": "cdate", "example": "cdate(<val>)", "description": "Konwersja na datę." },
-      { "name": "cvdate", "example": "cvdate(<val>)", "description": "Konwersja na datę (alias)." },
+      { "name": "cvdate", "example": "cvdate(<val>)", "description": "Konwersja na datę." },
       { "name": "date", "example": "date()", "description": "Dzisiejsza data." },
       { "name": "dateadd", "example": "dateadd(<interval>, <number>, <dt>)", "description": "Dodaje okres do daty." },
       { "name": "datediff", "example": "datediff(<interval>, <start>, <end>)", "description": "Różnica pomiędzy dwiema datami." },
@@ -120,8 +114,7 @@
       { "name": "minute", "example": "minute(<dt>)", "description": "Minuta (0-59)." },
       { "name": "second", "example": "second(<dt>)", "description": "Sekunda (0-59)." },
       { "name": "weekday", "example": "weekday(<dt>)", "description": "Dzień tygodnia (1=Nd)." },
-      { "name": "weekdayname", "example": "weekdayname(<wd>)", "description": "Nazwa dnia tygodnia." },
-      { "name": "weekdaynme", "example": "weekdaynme(<wd>)", "description": "Alias z literówką dla weekdayname." }
+      { "name": "weekdayname", "example": "weekdayname(<wd>)", "description": "Nazwa dnia tygodnia." }
     ]
   },
   {
@@ -142,16 +135,16 @@
     "category": "tekstowe",
     "items": [
       { "name": "asc", "example": "asc(<s>)", "description": "Kod ASCII pierwszego znaku." },
-      { "name": "chr_", "example": "chr_(<code>)", "description": "Znak o podanym kodzie." },
-      { "name": "format_", "example": "format_(<val>, <fmt>)", "description": "Formatowanie wartości według wzorca." },
+      { "name": "chr", "example": "chr(<code>)", "description": "Znak o podanym kodzie." },
+      { "name": "format", "example": "format(<val>, <fmt>)", "description": "Formatowanie wartości według wzorca." },
       { "name": "instr", "example": "instr(<start>, <string>, <substring>)", "description": "Pozycja podciągu (1-based)." },
-      { "name": "lowecase", "example": "lowecase(<s>)", "description": "Alias z literówką dla lowercase." },
+      { "name": "lowecase", "example": "lowecase(<s>)", "description": "Tekst na małe litery." },
       { "name": "lowercase", "example": "lowercase(<s>)", "description": "Tekst na małe litery." },
       { "name": "uppercase", "example": "uppercase(<s>)", "description": "Tekst na wielkie litery." },
       { "name": "left", "example": "left(<s>, <n>)", "description": "Lewy fragment tekstu." },
       { "name": "right", "example": "right(<s>, <n>)", "description": "Prawy fragment tekstu." },
-      { "name": "len_", "example": "len_(<s>)", "description": "Długość sekwencji." },
-      { "name": "replace_", "example": "replace_(<s>, <old>, <new>)", "description": "Zamiana podciągu." },
+      { "name": "len", "example": "len(<s>)", "description": "Długość sekwencji." },
+      { "name": "replace", "example": "replace(<s>, <old>, <new>)", "description": "Zamiana podciągu." },
       { "name": "reverse", "example": "reverse(<s>)", "description": "Odwrócony tekst." },
       { "name": "trim", "example": "trim(<s>)", "description": "Usunięcie białych znaków z końców." }
     ]
